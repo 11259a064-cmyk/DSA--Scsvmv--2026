@@ -29,20 +29,16 @@ int main()
 
         if (isdigit(c))
         {
-            // We found a digit. Shift the current number left by one base-10 spot and add the new digit.
-            // Example for "123":
-            // 1st loop: 0 * 10 + 1 = 1
-            // 2nd loop: 1 * 10 + 2 = 12
-            // 3rd loop: 12 * 10 + 3 = 123
+           
             current_num = (current_num * 10) + (c - '0');
             is_building_num = 1;
         }
-        // We hit a space or the end of the line. If we were building a number, it's now complete.
+       
         else if ((c == ' ' || c == '\n') && is_building_num == 1)
         {
             push(current_num);
-            current_num = 0;     // Reset for the next number
-            is_building_num = 0; // Reset flag
+            current_num = 0;     
+            is_building_num = 0;
         }
         else if (c == '+' || c == '-' || c == '*' || c == '/')
         {
