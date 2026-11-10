@@ -1,6 +1,4 @@
-/* Experiment 3: Infix to Postfix Conversion using Stack
-   Case Study: Vidya College SIS - Converting the CGPA-computation formula
-   entered by faculty into postfix form for the result-processing engine */
+
 
 #include <stdio.h>
 #include <string.h>
@@ -41,7 +39,7 @@ char peek()
     return stack[top];
 }
 
-// Get precedence of operator
+
 int precedence(char c)
 {
     if (c == '+' || c == '-')
@@ -53,7 +51,7 @@ int precedence(char c)
     return 0;
 }
 
-// Check if character is an operator
+
 int isOperator(char c)
 {
     return (c == '+' || c == '-' || c == '*' || c == '/' || c == '^');
@@ -64,7 +62,7 @@ void infixToPostfix(char infix[], char postfix[])
     int i, j = 0;
     char c;
 
-    // Step 4: Scan the infix expression from left to right
+    
     for (i = 0; infix[i] != '\0'; i++)
     {
         c = infix[i];
@@ -73,7 +71,7 @@ void infixToPostfix(char infix[], char postfix[])
         // if(isalpha(c)
         if (!isOperator(c) && c != '(' && c != ')' && c != '[' && c != ']' && c != '{' && c != '}')
         {
-            // Add it directly to the postfix expression
+           
             postfix[j++] = c;
         }
 
@@ -83,18 +81,18 @@ void infixToPostfix(char infix[], char postfix[])
             // Step 4.II.A: Check if stack is empty OR top has lower precedence OR top is '('
             if (top == -1 || precedence(peek()) < precedence(c) || peek() == '(')
             {
-                // Push the operator onto the stack
+                
                 push(c);
             }
-            // Step 4.II.B: Otherwise (top has higher or equal precedence)
+          
             else
             {
-                // Pop operators from stack and add to postfix until condition is true
+             
                 while (top != -1 && peek() != '(' && precedence(peek()) >= precedence(c))
                 {
                     postfix[j++] = pop();
                 }
-                // Then push the current operator onto the stack
+                
                 push(c);
             }
         }
@@ -114,7 +112,7 @@ void infixToPostfix(char infix[], char postfix[])
             {
                 postfix[j++] = pop();
             }
-            // Ignore both parentheses (no need to add them to postfix expression)
+           
             if (top != -1)
             {
                 pop(); // Remove the '('
@@ -122,7 +120,7 @@ void infixToPostfix(char infix[], char postfix[])
         }
     }
 
-    // Step 6: Pop any remaining operators from the stack
+  
     while (top != -1)
     {
         postfix[j++] = pop();
