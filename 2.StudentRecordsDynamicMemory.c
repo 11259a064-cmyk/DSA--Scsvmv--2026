@@ -1,5 +1,4 @@
-/* Experiment 2: Dynamic Student Record System using Structure Pointers
-   Case Study: Vidya College SIS - Admission desk creates student records dynamically */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,11 +9,7 @@ struct Student
     float cgpa;
 };
 
-/// <summary>
-/// Displays the student records in a tabular format. (-6s: Left-align the ID field with a width of 6 characters.)
-/// s: Pointer to the first student record in the array.
-/// s + i: Pointer arithmetic to access the ith student record. Similar to s[i], but using pointer notation.
-/// </summary>
+
 void display(struct Student *s, int n)
 {
     printf("\n%-6s %-15s %-6s\n", "ID", "Name", "CGPA");
