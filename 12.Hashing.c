@@ -1,7 +1,4 @@
-/* Experiment 12: Implementation of Hashing with Collision Resolution
-   using Linear Probing
-   Case Study: Vidya College SIS - Storing Student IDs in a hash table
-   for O(1) average lookup during ID-card verification at the gate */
+
 #include <stdio.h>
 #define TABLE_SIZE 7
 
